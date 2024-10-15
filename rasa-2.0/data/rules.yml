@@ -1,0 +1,18 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet the user
+  steps:
+  - intent: greeting
+  - action: utter_greet
+
+- rule: User says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Handle default response
+  steps:
+  - action: utter_default
+

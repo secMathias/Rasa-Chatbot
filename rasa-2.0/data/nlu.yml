@@ -1,0 +1,918 @@
+version: "3.1"
+nlu:
+- intent: greeting
+  examples: |
+    - Bom dia
+    - Bonjour
+    - Good Morning
+    - Good morning
+    - Good mourning
+    - Guten Morgen
+    - HELLO
+    - HEY
+    - HEllo
+    - HI
+    - HI Sara
+    - Hallo
+    - Hei
+    - Hellllooooooo
+    - Hello
+    - Hello Bot
+    - Hello Rasa
+    - Hello Sara
+    - Hello sara
+    - Hello!
+    - Hey
+    - Hey Sara
+    - Hey bot
+    - Heya
+    - Heylo
+    - Hi
+    - Hi Sara
+    - Hi Sara!
+    - Hi bot
+    - Hi man
+    - Hi rasa
+    - Hi sara
+    - Hi sara..
+    - Hi there
+    - Hi!
+    - Hi'
+    - Hi,
+    - Hi, bot
+    - Hieee
+    - Hieeeeeeeeeeeee
+    - Hola
+    - I said, helllllloooooO!!!!
+    - Well hello there ;)
+    - What is up?
+    - Whats up
+    - Whats up my bot
+    - Whats up?
+    - ayyyy whaddup
+    - bonjour
+    - ey boss
+    - good evening
+    - good moring
+    - good morning
+    - greet
+    - greetings
+    - hai
+    - hallo
+    - hallo sara
+    - halloo
+    - halloooo
+    - halo
+    - halo sara
+    - heeey
+    - heelio
+    - hell9o
+    - hellio
+    - hello
+    - hello Sara
+    - hello everybody
+    - hello friend
+    - hello hi
+    - hello is anybody there
+    - hello it is me again
+    - hello robot
+    - hello sara
+    - hello sweatheart
+    - hello sweet boy
+    - hello there
+    - hello world
+    - hello, my name is [Charles Pfeffer](name)
+    - hello?
+    - hello]
+    - hellooo
+    - helloooo
+    - helo
+    - hey
+    - hey bot
+    - hey bot!
+    - hey dude
+    - hey hey
+    - hey let's talk
+    - hey rasa
+    - hey sara
+    - hey ther
+    - hey there
+    - hey there boy
+    - hey there..
+    - hey, let's talk
+    - hey, sara!
+    - heya
+    - heyho
+    - heyo
+    - hhola
+    - hi
+    - hi !
+    - hi Mister
+    - hi again
+    - hi can you speak ?
+    - hi folks
+    - hi friend
+    - hi friends
+    - hi hi
+    - hi i'm [Sandra Hernandez](name)
+    - hi im [Amanda Anderson](name)
+    - hi mrs rasa
+    - hi pal!
+    - hi sara
+    - hi there
+    - hi there it's me
+    - hi!
+    - hi.........................................................
+    - hi?
+    - hieee
+    - hii
+    - hiihihi
+    - hiii
+    - hlo
+    - hola
+    - howdy
+    - i am [Karen Mease](name)
+    - jojojo
+    - jop
+    - konichiwa
+    - merhaba
+    - ola sara
+    - rasa hello
+    - salut
+    - sup
+    - wasssup
+    - wasssup!
+    - what up
+    - whats popping
+    - whats up
+    - yo
+    - yoo
+    - ssup?
+    - helleo
+    - Hey hey
+- intent: goodbye
+  examples: |
+    - Bye
+    - Bye bye
+    - adios
+    - adios?
+    - bye
+    - bye .
+    - bye :P
+    - bye bot
+    - bye bye
+    - bye bye bot
+    - bye for now
+    - bye udo
+    - bye was nice talking to you
+    - bye!
+    - byee
+    - catch you later
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye rasa bot!
+    - good night
+    - goodbye
+    - goodbye.
+    - goodnight
+    - gotta go
+    - k byyye #slay
+    - ok Bye
+    - ok bye
+    - ok, bye
+    - ok.bye
+    - see u later
+    - see ya
+    - see you
+    - see you . bye
+    - take care
+    - then bye
+    - tlak to you later
+    - toodle-oo
+    - Exit
+    - Close this talk
+    - byr
+    - Ok thanks bye
+- intent: affirm
+  examples: |
+    - Accept
+    - Awesome!
+    - Good
+    - Great
+    - I accept
+    - I accept.
+    - I agree
+    - I am using it
+    - I changed my mind. I want to accept it
+    - I do
+    - I get it
+    - I guess so
+    - I have used it in the past
+    - I will
+    - I'd absolutely love that
+    - I'm sure I will!
+    - I'm using it
+    - Nice
+    - OK
+    - Ofcourse
+    - Oh yes
+    - Oh, ok
+    - Ok
+    - Ok let's start
+    - Ok.
+    - Okay
+    - Okay!
+    - PLEASE
+    - SURE
+    - Sure
+    - Sweet
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+    - Yes.
+    - Yup
+    - a little
+    - absolutely
+    - accept
+    - accepted
+    - agreed
+    - ah ok
+    - alright
+    - alright, cool
+    - amayzing
+    - amazing!
+    - awesome
+    - awesome!
+    - confirm
+    - cool story bro
+    - definitely yes without a doubt
+    - done
+    - fair enough
+    - fcourse
+    - fine
+    - fuck yeah!
+    - go
+    - go ahead
+    - go for it
+    - going super well
+    - good.
+    - great
+    - great lets do that
+    - great!
+    - hell yeah
+    - hell yes
+    - hm, i'd like that
+    - how nice!
+    - i accept
+    - i agree
+    - i am!
+    - i want that
+    - i will!
+    - it is ok
+    - its okay
+    - ja
+    - ja cool
+    - ja thats great
+    - jezz
+    - jo
+    - k
+    - kk
+    - lets do it
+    - lets do this
+    - not bad
+    - of course
+    - ofcoure i do
+    - ofcourse
+    - oh awesome!
+    - oh cool
+    - oh good !!
+    - oh super
+    - ok
+    - ok cool
+    - ok fine
+    - ok friend
+    - ok good
+    - ok great
+    - ok i accept
+    - ok sara
+    - ok, I behave now
+    - ok, I understood
+    - ok, Sara
+    - ok...
+    - okay
+    - okay cool
+    - okay sure
+    - okay..
+    - oki doki
+    - okie
+    - ook
+    - oui
+    - perfect
+    - please
+    - si
+    - sort of
+    - sure
+    - sure thing
+    - sure!
+    - that is cool
+    - that ok
+    - that sounds fine
+    - that's great
+    - thats fine
+    - thats good
+    - thats great
+    - top
+    - uh-huh
+    - very much
+    - well yes
+    - y
+    - ya
+    - ya cool
+    - ya go for it
+    - ya i want
+    - ya please
+    - ya thats cool
+    - yaah
+    - yap
+    - yaps
+    - yas
+    - yay
+    - ye
+    - ye splease
+    - yea
+    - yeah
+    - yeah do that
+    - yeah sure
+    - yeah'=
+    - yeah, why not
+    - yeeeeezzzzz
+    - yeeees
+    - yep
+    - yep i want that
+    - yep if i have to
+    - yep please
+    - yep that's nice
+    - yep thats cool
+    - yep, will do thank you
+    - yep. :/
+    - yes
+    - yes ...
+    - yes I do
+    - yes accept please
+    - yes baby
+    - yes cool
+    - yes give me information
+    - yes go ahead
+    - yes go for it
+    - yes great
+    - yes i accept
+    - yes i agree
+    - yes i have built a bot before
+    - yes i have!
+    - yes it is
+    - yes it was okay
+    - yes of course
+    - yes pleae
+    - yes please
+    - yes please!
+    - yes pls
+    - yes sirfr
+    - yes that's great
+    - yes that's what i want
+    - yes you can
+    - yes'
+    - yes, I'd love to
+    - yes, cool
+    - yes, give me information, please
+    - yes,i am
+    - yes.
+    - yesh
+    - yess
+    - yessoo
+    - yesss
+    - yesssss
+    - yesyestyes
+    - yesyesyes
+    - yez
+    - yop
+    - you asked me a yes or no question, which i answered with yes
+    - you got me, I accept, if you want me to
+    - yres
+    - ys
+    - yup
+    - yyeeeh
+    - Okay cool
+    - ok..
+    - considering
+    - More a less
+    - sounds good!
+    - really
+- intent: deny
+  examples: |
+    - I don't want to
+    - I don't want to give it to you
+    - I don't want to say
+    - I dont want to tell
+    - I'm not giving you my email address
+    - I'm not going to give it to you
+    - NEIN
+    - NO
+    - NO DON"T WANT THIS!
+    - Nah
+    - Neither
+    - Never
+    - Nevermind
+    - No
+    - No thank you
+    - No, not really.
+    - No, thank you
+    - No.
+    - Nopes
+    - Not really
+    - absolutely not
+    - decline
+    - definitely not
+    - deny
+    - i decline
+    - i don not like this
+    - i don't think so
+    - i don't want either of those
+    - i don't want to
+    - i don't want to give you my email
+    - i dont want to
+    - i dont want to accept :P lol
+    - i guess it means - no
+    - i'm afraid not
+    - i'm not sure
+    - it is going pretty badly
+    - it sucks
+    - it sux
+    - n
+    - na
+    - nah
+    - nah I'm good
+    - nah not for me
+    - nah, first time
+    - nah, i'm good
+    - nehi
+    - nein
+    - neither
+    - never
+    - never mind
+    - no
+    - no :(
+    - no I dont want
+    - no I haven't decided yet if I want to sign up
+    - no and no again
+    - no bots at all
+    - no go
+    - no i can't
+    - no i don't accept
+    - no i dont want to
+    - no i dont want to accept :P lol
+    - no i won't
+    - no ma'am
+    - no sir
+    - no sorry
+    - no thank s
+    - no thank you
+    - no thanks
+    - no way
+    - no you did it wrong
+    - no!!!!
+    - no, i hate it
+    - no, my frst time
+    - no, thank you
+    - no, thanks
+    - no, thankyou
+    - no. u r idiot
+    - non
+    - noooooooooo
+    - noooooooooooooooooooooooooooooooooooooooo
+    - nop
+    - nope
+    - nope!
+    - nope. i am good
+    - not going well at all
+    - not really
+    - not right now
+    - not yet
+    - nö
+    - sorry not right now
+    - still dont want to tell
+    - thanks but no thanks
+    - this sucks
+    - very bad
+    - I do not need help installing
+    - I don't wanna tell the name of my company
+    - no stop
+    - stop it, i do not care!!!
+    - none of them
+    - I don't agree
+- intent: needs_help
+  examples: |
+    - I need help
+    - Can you assist me?
+    - I need some assistance
+    - Please help me
+    - I could use some help
+    - I need your help
+    - Could you give me a hand?
+    - I require some support
+    - Can you guide me?
+    - I am struggling, can you help?
+    - I need someone to assist me
+    - I need some advice
+    - I need some guidance
+    - Can you help me figure this out?
+    - Would you be able to help me?
+    - Yes i nedd help
+    - Yes a little
+- intent: needs_no_help
+  examples: |
+    - I don't need any help
+    - No assistance needed
+    - I'm fine, thanks
+    - I can manage on my own
+    - No help is needed
+    - I'm okay, no help required
+    - I can handle it myself
+    - No need for help
+    - I'm good, no assistance necessary
+    - I have it under control
+    - I don't require any support
+    - No worries, I got this
+    - I'm capable of doing it alone
+    - Everything is fine, no help needed
+    - I can do it myself
+    - No not really just clicked the wrong image
+    - No thats all
+- intent: ask_weather
+  examples: |
+    - What is the weather like today?
+    - Can you tell me the weather?
+    - What's the temperature outside?
+    - How's the weather today?
+    - Is it going to rain today?
+    - Give me the weather forecast
+    - What's the weather in [Berlin](city)?
+    - Will it be sunny today?
+    - What's the weather going to be like?
+    - Can you check the weather for me?
+    - What’s the weather like in [Munich](city)?
+    - Will it snow in [London](city) today?
+    - How's the weather looking for [Paris](city)?
+    - What is the temperature in [New York](city)?
+    - Is it cold in [Amsterdam](city) today?
+    - Will it be windy in [San Francisco](city)?
+    - What's the weather like in [Tokyo](city)?
+    - Is there a chance of rain in [Toronto](city)?
+    - What's the humidity level in [Singapore](city)?
+    - Can you tell me if it's going to be sunny in [Dubai](city)?
+    - How is the weather tody
+- intent: register_account
+  examples: |
+    - I want to register an account
+    - How do I create an account?
+    - Can you help me register?
+    - I need to create an account
+    - Sign me up for an account
+    - Help me with account registration
+    - How can I sign up?
+    - I need to register my details
+    - Please register me
+    - I want to open a new account
+    - I would like to register as [John Doe](name)
+    - Can you register me as [Anna Smith](name)?
+    - My name is [Michael Brown](name), and I want to register
+    - Help me set up an account for [Sarah Johnson](name)
+    - Please sign up [Emily Davis](name) for an account
+    - I need to create an account with the name [David Wilson](name)
+    - Register me under the name [Jessica Garcia](name)
+    - Can you help [Robert Martinez](name) register an account?
+    - I’d like to register the account as [Linda Anderson](name)
+    - Sign up an account for [James Thomas](name)
+- intent: buy_coin
+  examples: |
+    - I want to buy some coins
+    - Help me buy cryptocurrency
+    - I need to buy a coin
+    - Can I purchase some coins?
+    - I want to invest in coins
+    - Help me with buying coins
+    - I'd like to buy some crypto
+    - Where can I buy coins?
+    - I need assistance to buy crypto
+    - How do I buy coins?
+    - Can I get some digital currency?
+    - I’m looking to buy tokens
+    - Show me how to buy crypto
+    - Please help me buy some digital assets
+    - I want to invest in tokens
+    - How can I buy coins?
+    - I’d like to make a purchase of cryptocurrency
+    - Can you guide me to buy crypto?
+    - I want to get some digital currency
+    - I’m interested in buying coins
+- intent: sell_coin
+  examples: |
+    - I want to sell some coins
+    - Help me sell my cryptocurrency
+    - I need to sell a coin
+    - Can I sell my coins?
+    - I want to cash out my coins
+    - Help me with selling coins
+    - I'd like to sell some crypto
+    - Where can I sell coins?
+    - I want to sell one of my coins
+    - How do I sell cryptocurrency?
+    - I need assistance to sell coins
+    - Can I exchange my digital currency?
+    - I want to trade my crypto
+    - I’d like to cash out my tokens
+    - Show me how to sell coins
+    - Please assist me in selling my digital assets
+    - I’m looking to sell crypto
+    - I need to convert my coins to cash
+    - I want to get rid of some tokens
+    - Can you guide me to sell digital currency?
+- intent: provide_details
+  examples: |
+    - My name is [John Doe](name), my email is [john@example.com](email), and I live in [Germany](country)
+    - Name: [John](name), Email: [john@example.com](email), Country: [Germany](country)
+    - [John](name), email [john@example.com](email), country [Germany](country)
+    - My details are: name is [Anna](name), email [anna@example.com](email), living in [France](country)
+    - Here is my info: [Emily](name), email [emily@example.com](email), [USA](country)
+    - [Robert](name), email address [robert@example.com](email), location [Canada](country)
+    - I’m [Paul](name), my email is [paul@example.com](email), I’m from [Italy](country)
+    - Register me: [Susan](name), email [susan@example.com](email), based in [Australia](country)
+    - Info: name [Jake](name), email [jake@example.com](email), country [UK](country)
+    - Name is [Rachel](name), email is [rachel@example.com](email), country is [Spain](country)
+    - Contact details: [Mark](name), email [mark@example.com](email), country [Switzerland](country)
+    - [Diana](name), email [diana@example.com](email), residing in [Netherlands](country)
+    - Register under [Linda](name), email [linda@example.com](email), country [Brazil](country)
+    - My name is [Alex](name), email [alex@example.com](email), I live in [Argentina](country)
+    - Full details: [Lisa](name), email [lisa@example.com](email), residing in [Mexico](country)
+    - Info: [Tom](name), email address [tom@example.com](email), located in [Japan](country)
+    - Name is [Sam](name), email [sam@example.com](email), place [India](country)
+    - My information: [Nina](name), email [nina@example.com](email), based in [Portugal](country)
+    - [Hank](name), email [hank@example.com](email), from [South Africa](country)
+    - Details: [Eva](name), email [eva@example.com](email), country [Norway](country)
+- intent: buy_bitcoin
+  examples: |
+    - I want to buy [Bitcoin](coin_type)
+    - Help me buy [Bitcoin](coin_type)
+    - I need some [Bitcoin](coin_type)
+    - Can I buy [Bitcoin](coin_type)?
+    - How do I purchase [Bitcoin](coin_type)?
+    - Show me how to buy [Bitcoin](coin_type)
+    - I would like to invest in [Bitcoin](coin_type)
+    - How can I get some [Bitcoin](coin_type)?
+    - What's the process to buy [Bitcoin](coin_type)?
+    - I want to purchase [Bitcoin](coin_type)
+    - Can I invest in [Bitcoin](coin_type)?
+    - I’m looking to buy [Bitcoin](coin_type)
+    - Where can I buy [Bitcoin](coin_type)?
+    - Please help me buy some [Bitcoin](coin_type)
+    - I need to get some [Bitcoin](coin_type)
+    - Tell me how to buy [Bitcoin](coin_type)
+    - I want to get [Bitcoin](coin_type) worth $1000
+    - Can you guide me to buy [Bitcoin](coin_type)?
+    - I’d like to purchase some [Bitcoin](coin_type)
+    - I’m interested in buying [Bitcoin](coin_type)
+    - I want to buy [bitcoin]{"entity": "coin_type", "value": "Bitcoin"}
+- intent: buy_ethereum
+  examples: |
+    - I want to buy [Ethereum](coin_type)
+    - Help me buy [Ethereum](coin_type)
+    - I need some [Ethereum](coin_type)
+    - Can I buy [Ethereum](coin_type)?
+    - How do I purchase [Ethereum](coin_type)?
+    - Show me how to buy [Ethereum](coin_type)
+    - I would like to invest in [Ethereum](coin_type)
+    - How can I get some [Ethereum](coin_type)?
+    - What's the process to buy [Ethereum](coin_type)?
+    - I want to purchase [Ethereum](coin_type)
+    - Can I invest in [Ethereum](coin_type)?
+    - I’m looking to buy [Ethereum](coin_type)
+    - Where can I buy [Ethereum](coin_type)?
+    - Please help me buy some [Ethereum](coin_type)
+    - I need to get some [Ethereum](coin_type)
+    - Tell me how to buy [Ethereum](coin_type)
+    - I want to get [Ethereum](coin_type) worth $500
+    - Can you guide me to buy [Ethereum](coin_type)?
+    - I’d like to purchase some [Ethereum](coin_type)
+    - I’m interested in buying [Ethereum](coin_type)
+- intent: buy_solaris
+  examples: |
+    - I want to buy [Solaris](coin_type)
+    - Help me buy [Solaris](coin_type)
+    - I need some [Solaris](coin_type)
+    - Can I buy [Solaris](coin_type)?
+    - How do I purchase [Solaris](coin_type)?
+    - Show me how to buy [Solaris](coin_type)
+    - I would like to invest in [Solaris](coin_type)
+    - How can I get some [Solaris](coin_type)?
+    - What's the process to buy [Solaris](coin_type)?
+    - I want to purchase [Solaris](coin_type)
+    - Can I invest in [Solaris](coin_type)?
+    - I’m looking to buy [Solaris](coin_type)
+    - Where can I buy [Solaris](coin_type)?
+    - Please help me buy some [Solaris](coin_type)
+    - I need to get some [Solaris](coin_type)
+    - Tell me how to buy [Solaris](coin_type)
+    - I want to get [Solaris](coin_type) worth $200
+    - Can you guide me to buy [Solaris](coin_type)?
+    - I’d like to purchase some [Solaris](coin_type)
+    - I’m interested in buying [Solaris](coin_type)
+- intent: sell_bitcoin
+  examples: |
+    - I want to sell [Bitcoin](coin_type)
+    - Help me sell [Bitcoin](coin_type)
+    - I need to sell my [Bitcoin](coin_type)
+    - Can I sell [Bitcoin](coin_type)?
+    - How do I sell [Bitcoin](coin_type)?
+    - Show me how to sell [Bitcoin](coin_type)
+    - I would like to cash out my [Bitcoin](coin_type)
+    - How can I get rid of some [Bitcoin](coin_type)?
+    - What's the process to sell [Bitcoin](coin_type)?
+    - I want to trade my [Bitcoin](coin_type)
+    - Can I exchange my [Bitcoin](coin_type)?
+    - I’m looking to sell [Bitcoin](coin_type)
+    - Where can I sell [Bitcoin](coin_type)?
+    - Please help me sell some [Bitcoin](coin_type)
+    - I need to convert my [Bitcoin](coin_type) to cash
+    - Tell me how to sell [Bitcoin](coin_type)
+    - I want to sell [Bitcoin](coin_type) worth $1000
+    - Can you guide me to sell [Bitcoin](coin_type)?
+    - I’d like to sell some of my [Bitcoin](coin_type)
+    - I’m interested in selling my [Bitcoin](coin_type)
+- intent: sell_ethereum
+  examples: |
+    - I want to sell [Ethereum](coin_type)
+    - Help me sell [Ethereum](coin_type)
+    - I need to sell my [Ethereum](coin_type)
+    - Can I sell [Ethereum](coin_type)?
+    - How do I sell [Ethereum](coin_type)?
+    - Show me how to sell [Ethereum](coin_type)
+    - I would like to cash out my [Ethereum](coin_type)
+    - How can I get rid of some [Ethereum](coin_type)?
+    - What's the process to sell [Ethereum](coin_type)?
+    - I want to trade my [Ethereum](coin_type)
+    - Can I exchange my [Ethereum](coin_type)?
+    - I’m looking to sell [Ethereum](coin_type)
+    - Where can I sell [Ethereum](coin_type)?
+    - Please help me sell some [Ethereum](coin_type)
+    - I need to convert my [Ethereum](coin_type) to cash
+    - Tell me how to sell [Ethereum](coin_type)
+    - I want to sell [Ethereum](coin_type) worth $500
+    - Can you guide me to sell [Ethereum](coin_type)?
+    - I’d like to sell some of my [Ethereum](coin_type)
+    - I’m interested in selling my [Ethereum](coin_type)
+- intent: sell_solaris
+  examples: |
+    - I want to sell [Solaris](coin_type)
+    - Help me sell [Solaris](coin_type)
+    - I need to sell my [Solaris](coin_type)
+    - Can I sell [Solaris](coin_type)?
+    - How do I sell [Solaris](coin_type)?
+    - Show me how to sell [Solaris](coin_type)
+    - I would like to cash out my [Solaris](coin_type)
+    - How can I get rid of some [Solaris](coin_type)?
+    - What's the process to sell [Solaris](coin_type)?
+    - I want to trade my [Solaris](coin_type)
+    - Can I exchange my [Solaris](coin_type)?
+    - I’m looking to sell [Solaris](coin_type)
+    - Where can I sell [Solaris](coin_type)?
+    - Please help me sell some [Solaris](coin_type)
+    - I need to convert my [Solaris](coin_type) to cash
+    - Tell me how to sell [Solaris](coin_type)
+    - I want to sell [Solaris](coin_type) worth $200
+    - Can you guide me to sell [Solaris](coin_type)?
+    - I’d like to sell some of my [Solaris](coin_type)
+    - I’m interested in selling my [Solaris](coin_type)
+- intent: amount_specified
+  examples: |
+    - I want to buy [10](amount) coins
+    - I want to sell [5](amount) coins
+    - [20](amount) coins
+    - I need [15](amount) coins
+    - I want to buy [30](amount) units
+    - I want to sell [40](amount) units
+    - [100](amount) units
+    - I need [25](amount) units
+    - I would like to buy [50](amount) coins
+    - I would like to sell [60](amount) coins
+    - I'm looking to buy [70](amount) coins
+    - Can I purchase [80](amount) units?
+    - I want to sell [90](amount) coins
+    - I need to buy [120](amount) units
+    - I'm interested in selling [130](amount) coins
+    - I want to get [140](amount) units
+    - Help me buy [150](amount) coins
+    - Please assist me in selling [160](amount) units
+    - I would like to purchase [170](amount) coins
+    - Can I get [180](amount) units?
+    - [30](amount)
+- intent: ask_bitcoin_balance
+  examples: |
+    - How much [Bitcoin](coin_type) do I have?
+    - What is my [Bitcoin](coin_type) balance?
+    - Can you check my [Bitcoin](coin_type) balance?
+    - How many [Bitcoins](coin_type) do I own?
+    - Show me my [Bitcoin](coin_type) balance.
+    - Do I have any [Bitcoin](coin_type)?
+    - How many [BTC](coin_type) do I have?
+    - Tell me how much [Bitcoin](coin_type) I have.
+    - Can you tell me how much [Bitcoin](coin_type) I have?
+    - What's my [Bitcoin](coin_type) amount?
+    - How many [Bitcoin](coin_type) coins are in my account?
+    - Check how many [Bitcoin](coin_type) I have.
+    - Show my [Bitcoin](coin_type) balance.
+    - I want to know my [Bitcoin](coin_type) balance.
+    - What's the total [Bitcoin](coin_type) I hold?
+    - Can you check how many [BTC](coin_type) I own?
+    - How much [BTC](coin_type) is in my account?
+    - Can you tell me how many [BTC](coin_type) I own?
+    - Show me the number of [Bitcoin](coin_type) I have.
+    - How much [Bitcoin](coin_type) is in my wallet?
+- intent: ask_ethereum_balance
+  examples: |
+    - How much [Ethereum](coin_type) do I have?
+    - What is my [Ethereum](coin_type) balance?
+    - Can you check my [Ethereum](coin_type) balance?
+    - How many [Ethereum](coin_type) coins do I own?
+    - Show me my [Ethereum](coin_type) balance.
+    - Do I have any [Ethereum](coin_type)?
+    - How many [ETH](coin_type) do I have?
+    - Tell me how much [Ethereum](coin_type) I have.
+    - Can you tell me how much [Ethereum](coin_type) I have?
+    - What's my [Ethereum](coin_type) amount?
+    - How many [Ethereum](coin_type) coins are in my account?
+    - Check how much [Ethereum](coin_type) I have.
+    - Show my [Ethereum](coin_type) balance.
+    - I want to know my [Ethereum](coin_type) balance.
+    - What's the total [Ethereum](coin_type) I hold?
+    - Can you check how many [ETH](coin_type) I own?
+    - How much [ETH](coin_type) is in my account?
+    - Can you tell me how many [ETH](coin_type) I own?
+    - Show me the number of [Ethereum](coin_type) I have.
+    - How much [Ethereum](coin_type) is in my wallet?
+- intent: ask_solaris_balance
+  examples: |
+    - How much [Solaris](coin_type) do I have?
+    - What is my [Solaris](coin_type) balance?
+    - Can you check my [Solaris](coin_type) balance?
+    - How many [Solaris](coin_type) coins do I own?
+    - Show me my [Solaris](coin_type) balance.
+    - Do I have any [Solaris](coin_type)?
+    - How many [Solaris](coin_type) do I have?
+    - Tell me how much [Solaris](coin_type) I have.
+    - Can you tell me how much [Solaris](coin_type) I have?
+    - What's my [Solaris](coin_type) amount?
+    - How many [Solaris](coin_type) coins are in my account?
+    - Check how much [Solaris](coin_type) I have.
+    - Show my [Solaris](coin_type) balance.
+    - I want to know my [Solaris](coin_type) balance.
+    - What's the total [Solaris](coin_type) I hold?
+    - Can you check how many [Solaris](coin_type) coins I own?
+    - How much [Solaris](coin_type) is in my account?
+    - Can you tell me how many [Solaris](coin_type) coins I own?
+    - Show me the number of [Solaris](coin_type) I have.
+    - How much [Solaris](coin_type) is in my wallet?
+- intent: ask_balance
+  examples: |
+    - How much money do I have left?
+    - What is my remaining balance?
+    - How much is in my account?
+    - Can you check my balance?
+    - How much do I have left in my account?
+    - What is my current balance?
+    - Check how much money I have.
+    - How much cash do I have left?
+    - How much money do I still have?
+    - What is my account balance?
+    - Tell me my remaining balance.
+    - How much money do I own now?
+    - Show me my remaining balance.
+    - Can you tell me how much I have left?
+    - How much funds are left in my account?
+    - What's the current balance of my account?
+    - What amount is still in my account?
+    - How much money is in my account?
+    - What’s left in my account balance?
+    - How much is available in my account?
