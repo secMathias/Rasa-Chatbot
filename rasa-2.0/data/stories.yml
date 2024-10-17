@@ -537,3 +537,18 @@ stories:
   - checkpoint: account_registered
   - intent: goodbye
   - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greeting
+  - action: utter_greet
+  - intent: ask_balance
+  - action: action_check_balance
+  - action: utter_ask_more_help
+  - intent: ask_bitcoin_balance
+    entities:
+    - coin_type: Bitcoin
+  - slot_was_set:
+    - coin_type: Bitcoin
+  - action: action_check_bitcoin
+  - action: utter_ask_more_help

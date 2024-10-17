@@ -1,8 +1,11 @@
 version: '3.1'
-
 intents:
 - affirm
 - amount_specified
+- ask_balance
+- ask_bitcoin_balance
+- ask_ethereum_balance
+- ask_solaris_balance
 - ask_weather
 - buy_bitcoin
 - buy_coin
@@ -19,16 +22,14 @@ intents:
 - sell_coin
 - sell_ethereum
 - sell_solaris
-- ask_bitcoin_balance
-- ask_ethereum_balance
-- ask_solaris_balance
-- ask_balance
-
 actions:
+- utter_ask_more_help
+- utter_greet
+- action_check_bitcoin
+- action_check_balance
 - utter_buy_bitcoin
 - utter_provide_details
 - utter_goodbye
-- utter_greet
 - utter_weather
 - utter_help
 - utter_no_help
@@ -43,20 +44,16 @@ actions:
 - utter_specify_amount
 - action_buy_crypto
 - action_sell_crypto
-- action_check_bitcoin
 - action_check_ethereum
 - action_check_solaris
-- action_check_balance
-
 entities:
+- coin_type
 - balance
 - amount
-- coin_type
 - name
 - email
 - country
 - city
-
 slots:
   name:
     type: text
@@ -94,24 +91,22 @@ slots:
     min_value: 0.0
     max_value: 1000000.0
     mappings:
-      - type: custom
+    - type: custom
   Bitcoin:
     type: float
     initial_value: 0.0
     mappings:
-      - type: custom
+    - type: custom
   Ethereum:
     type: float
     initial_value: 0.0
     mappings:
-      - type: custom
+    - type: custom
   Solaris:
     type: float
     initial_value: 0.0
     mappings:
-      - type: custom
-
-
+    - type: custom
 responses:
   utter_greet:
   - text: Hey there! How can I assist you today?
@@ -119,127 +114,108 @@ responses:
   - text: Hi! How may I help you?
   - text: Greetings! How can I be of service today?
   - text: Hello! How can I assist you at the moment?
-
   utter_goodbye:
   - text: Goodbye! Have a great day!
   - text: See you later! Take care.
   - text: Bye! Feel free to come back if you need more help.
   - text: Thanks for stopping by! Take care!
   - text: Farewell! I'm here if you need anything else.
-
   utter_help:
   - text: Sure, I'm here to help! What do you need assistance with?
   - text: How can I help you today?
   - text: What do you need help with?
   - text: How may I assist you today?
   - text: I’m ready to assist! What can I help with?
-
   utter_no_help:
   - text: Alright, feel free to ask if you need anything.
   - text: Okay, let me know if you need help with anything else.
   - text: No problem! Just ask if you have any questions.
   - text: Got it! Let me know if you need anything else later.
   - text: Sure thing! Reach out if you need any further assistance.
-
   utter_weather:
   - text: The weather today is sunny with a chance of rain in the evening.
   - text: It's sunny right now, but there may be some rain later today.
   - text: Currently, it's sunny. Keep an eye out for possible rain in the evening.
   - text: The current weather is sunny, but rain is expected later.
   - text: It's bright and sunny now, but we might see some rain in the evening.
-
   utter_register:
   - text: To register an account, please provide me with your name, email address, and country.
   - text: I can help you register. Could you give me your name, email, and country?
   - text: Please provide your name, email address, and country to register.
   - text: Let’s get you registered. I’ll need your name, email, and country.
   - text: To create an account, please share your name, email, and country.
-
   utter_buy_coin:
   - text: What coin would you like to buy?
   - text: Please tell me which coin you're interested in buying.
   - text: Which coin are you looking to purchase?
   - text: Let me know which cryptocurrency you'd like to buy.
   - text: Which coin would you like to proceed with for the purchase?
-
   utter_sell_coin:
   - text: What coin would you like to sell?
   - text: Please specify which coin you want to sell.
   - text: Which coin are you looking to sell today?
   - text: Let me know which cryptocurrency you'd like to sell.
   - text: Which coin do you want to proceed with for selling?
-
   utter_provide_details:
-  - text: "Thank you, {name}, for the information. Your email is {email}, and you are from {country}. What would you like to do next?"
-  - text: "Got it, {name}! Your email is {email}, and you're located in {country}. Let me know if you need anything else."
-  - text: "Your details have been noted: Name: {name}, Email: {email}, Country: {country}. How can I assist you further?"
-  - text: "Thanks for providing the details, {name}. I’ve saved your email as {email} and country as {country}. Is there anything else I can help with?"
-  - text: "Great! Your details—Name: {name}, Email: {email}, and Country: {country}—are saved. What’s next on your mind?"
-
+  - text: Thank you, {name}, for the information. Your email is {email}, and you are from {country}. What would you like to do next?
+  - text: Got it, {name}! Your email is {email}, and you're located in {country}. Let me know if you need anything else.
+  - text: 'Your details have been noted: Name: {name}, Email: {email}, Country: {country}. How can I assist you further?'
+  - text: Thanks for providing the details, {name}. I’ve saved your email as {email} and country as {country}. Is there anything else I can help with?
+  - text: 'Great! Your details—Name: {name}, Email: {email}, and Country: {country}—are saved. What’s next on your mind?'
   utter_buy_bitcoin:
   - text: How much Bitcoin would you like to buy?
   - text: Please specify the amount of Bitcoin you'd like to purchase.
   - text: How many Bitcoins do you want to buy today?
   - text: Let me know how much Bitcoin you'd like to buy.
   - text: What is the amount of Bitcoin you're interested in purchasing?
-
   utter_buy_ethereum:
   - text: How much Ethereum would you like to buy?
   - text: Please specify the amount of Ethereum you wish to purchase.
   - text: How many Ethereum coins are you planning to buy?
   - text: Let me know how much Ethereum you'd like to buy.
   - text: Please enter the amount of Ethereum you’d like to purchase.
-
   utter_buy_solaris:
   - text: How much Solaris would you like to buy?
   - text: Please specify the amount of Solaris you want to purchase.
   - text: How many Solaris coins are you looking to buy today?
   - text: What is the amount of Solaris you’re interested in buying?
   - text: Let me know how much Solaris you'd like to buy.
-
   utter_sell_bitcoin:
   - text: How much Bitcoin would you like to sell?
   - text: Please specify the amount of Bitcoin you'd like to sell.
   - text: How many Bitcoins are you looking to sell?
   - text: Let me know the amount of Bitcoin you wish to sell.
   - text: What is the amount of Bitcoin you're planning to sell?
-
   utter_sell_ethereum:
   - text: How much Ethereum would you like to sell?
   - text: Please specify the amount of Ethereum you'd like to sell.
   - text: How many Ethereum coins are you looking to sell?
   - text: Let me know the amount of Ethereum you'd like to sell.
   - text: How much Ethereum would you like to sell today?
-
   utter_sell_solaris:
   - text: How much Solaris would you like to sell?
   - text: Please specify the amount of Solaris you'd like to sell.
   - text: How many Solaris coins are you planning to sell today?
   - text: Let me know how much Solaris you'd like to sell.
   - text: What is the amount of Solaris you'd like to sell today?
-
   utter_specify_amount:
   - text: Please specify the amount.
   - text: How much would you like to proceed with?
   - text: Let me know the amount you'd like to proceed with.
   - text: Please provide the amount you want to buy or sell.
   - text: What amount would you like to use for this transaction?
-
   utter_ask_more_help:
-  - text: "Can I help you with anything else?"
-  - text: "Is there anything else I can assist you with?"
-  - text: "Do you need help with something else?"
-  - text: "Would you like assistance with anything else?"
-  - text: "Is there anything more I can help you with today?"
-
+  - text: Can I help you with anything else?
+  - text: Is there anything else I can assist you with?
+  - text: Do you need help with something else?
+  - text: Would you like assistance with anything else?
+  - text: Is there anything more I can help you with today?
   utter_default:
   - text: I'm not sure I understand what you're trying to do. Do you want to exit the current process?
   - text: I didn't catch that. Would you like to start over?
   - text: I'm sorry, I don't understand. Would you like to end the current process?
   - text: That wasn't clear to me. Would you like to restart this conversation?
   - text: I'm not sure what you're asking. Should we start again?
-
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false

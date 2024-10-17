@@ -850,6 +850,7 @@ nlu:
     - Can you tell me how many [BTC](coin_type) I own?
     - Show me the number of [Bitcoin](coin_type) I have.
     - How much [Bitcoin](coin_type) is in my wallet?
+    - how much [bitcoin]{"entity": "coin_type", "value": "Bitcoin"} do i have
 - intent: ask_ethereum_balance
   examples: |
     - How much [Ethereum](coin_type) do I have?
@@ -916,3 +917,7 @@ nlu:
     - How much money is in my account?
     - What’s left in my account balance?
     - How much is available in my account?
+    - How much money do i have
+- synonym: Bitcoin
+  examples: |
+    - bitcoin

@@ -30,6 +30,16 @@
 <script>
 import axios from 'axios';
 
+// Function to generate or retrieve a unique sender_id for each tab
+const getSenderId = () => {
+  let senderId = localStorage.getItem('chatbot_sender_id');
+  if (!senderId) {
+    senderId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    localStorage.setItem('chatbot_sender_id', senderId);
+  }
+  return senderId;
+};
+
 export default {
   name: 'ChatbotBubble',
   props: ['isVisible'],
@@ -38,12 +48,14 @@ export default {
       newMessage: '',
       messages: [
         { id: 0, text: 'Hello! I am the chatbot in service of Elite. Ask me something.', isUser: false }
-      ]
+      ],
+      senderId: getSenderId() // Add senderId to the component's data
     };
   },
   methods: {
     closeChatbot() {
       this.$emit('toggle-chatbot');
+      localStorage.removeItem('chatbot_sender_id'); // Optionally clear the sender ID when closing the chatbot
     },
     async sendMessage() {
       if (this.newMessage.trim() !== '') {
@@ -53,9 +65,9 @@ export default {
         this.scrollToBottom();
 
         try {
-          // Send the message to Rasa's REST endpoint
+          // Send the message to Rasa's REST endpoint with the unique senderId
           const response = await axios.post('http://localhost:5005/webhooks/rest/webhook', {
-            sender: 'user', // a unique identifier for each conversation
+            sender: this.senderId, // Use the unique sender ID for each session
             message: userMessage.text
           });
 
