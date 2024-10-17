@@ -2,41 +2,252 @@ version: "3.1"
 
 stories:
 
-# User greets and asks to buy or sell a coin then selects a coin
+# Checkbox greeting
 
-- story: User greets and asks to buy a coin then selects Bitcoin
+- story: User greets
   steps:
   - intent: greeting
   - action: utter_greet
+  - checkpoint: greet_complete
+
+
+# Checkbox coin question
+
+- story: User asks what coin to buy
+  steps:
+  - checkpoint: greet_complete
   - intent: buy_coin
   - action: utter_buy_coin
+  - checkpoint: buy_coin_start
+
+- story: User asks what coin to buy (without greeting)
+  steps:
+  - intent: buy_coin
+  - action: utter_buy_coin
+  - checkpoint: buy_coin_start
+
+
+- story: User asks what coin to sell
+  steps:
+  - checkpoint: greet_complete
+  - intent: sell_coin
+  - action: utter_sell_coin
+  - checkpoint: sell_coin_start
+
+- story: User asks what coin to sell (without greeting)
+  steps:
+  - intent: sell_coin
+  - action: utter_sell_coin
+  - checkpoint: sell_coin_start
+
+
+# Checkbox coin selection
+
+- story: User selects Bitcoin to buy
+  steps:
+  - checkpoint: buy_coin_start
   - intent: buy_bitcoin
     entities:
       - coin_type: "Bitcoin"
   - slot_was_set:
     - coin_type: "Bitcoin"
   - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.0
-  - slot_was_set:
-    - amount: 1.0
-  - action: action_buy_crypto
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: coin_selected_buy
 
-- story: User greets and asks to buy a coin then selects Ethereum
+- story: User selects Ethereum to buy
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_coin
-  - action: utter_buy_coin
+  - checkpoint: buy_coin_start
   - intent: buy_ethereum
     entities:
       - coin_type: "Ethereum"
   - slot_was_set:
     - coin_type: "Ethereum"
   - action: utter_buy_ethereum
+  - checkpoint: coin_selected_buy
+
+- story: User selects Solaris to buy
+  steps:
+  - checkpoint: buy_coin_start
+  - intent: buy_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_buy_solaris
+  - checkpoint: coin_selected_buy
+
+
+- story: User selects Bitcoin to sell
+  steps:
+  - checkpoint: sell_coin_start
+  - intent: sell_bitcoin
+    entities:
+      - coin_type: "Bitcoin"
+  - slot_was_set:
+    - coin_type: "Bitcoin"
+  - action: utter_sell_bitcoin
+  - checkpoint: coin_selected_sell
+
+- story: User selects Ethereum to sell
+  steps:
+  - checkpoint: sell_coin_start
+  - intent: sell_ethereum
+    entities:
+      - coin_type: "Ethereum"
+  - slot_was_set:
+    - coin_type: "Ethereum"
+  - action: utter_sell_ethereum
+  - checkpoint: coin_selected_sell
+
+- story: User selects Solaris to sell
+  steps:
+  - checkpoint: sell_coin_start
+  - intent: sell_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_sell_solaris
+  - checkpoint: coin_selected_sell
+
+
+# Checkbox coin selcted directly
+
+- story: User selects directly Bitcoin to buy
+  steps:
+  - checkpoint: greet_complete
+  - intent: buy_bitcoin
+    entities:
+      - coin_type: "Bitcoin"
+  - slot_was_set:
+    - coin_type: "Bitcoin"
+  - action: utter_buy_bitcoin
+  - checkpoint: coin_selected_buy
+
+- story: User selects directly Ethereum to buy
+  steps:
+  - checkpoint: greet_complete
+  - intent: buy_ethereum
+    entities:
+      - coin_type: "Ethereum"
+  - slot_was_set:
+    - coin_type: "Ethereum"
+  - action: utter_buy_ethereum
+  - checkpoint: coin_selected_buy
+
+- story: User selects directly Solaris to buy
+  steps:
+  - checkpoint: greet_complete
+  - intent: buy_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_buy_solaris
+  - checkpoint: coin_selected_buy
+
+
+- story: User selects directly Bitcoin to sell
+  steps:
+  - checkpoint: greet_complete
+  - intent: sell_bitcoin
+    entities:
+      - coin_type: "Bitcoin"
+  - slot_was_set:
+    - coin_type: "Bitcoin"
+  - action: utter_sell_bitcoin
+  - checkpoint: coin_selected_sell
+
+- story: User selects directly Ethereum to sell
+  steps:
+  - checkpoint: greet_complete
+  - intent: sell_ethereum
+    entities:
+      - coin_type: "Ethereum"
+  - slot_was_set:
+    - coin_type: "Ethereum"
+  - action: utter_sell_ethereum
+  - checkpoint: coin_selected_sell
+
+- story: User selects directly Solaris to sell
+  steps:
+  - checkpoint: greet_complete
+  - intent: sell_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_sell_solaris
+  - checkpoint: coin_selected_sell
+
+
+- story: User selects directly Bitcoin to buy (without greeting)
+  steps:
+  - intent: buy_bitcoin
+    entities:
+      - coin_type: "Bitcoin"
+  - slot_was_set:
+    - coin_type: "Bitcoin"
+  - action: utter_buy_bitcoin
+  - checkpoint: coin_selected_buy
+
+- story: User selects directly Ethereum to buy (without greeting)
+  steps:
+  - intent: buy_ethereum
+    entities:
+      - coin_type: "Ethereum"
+  - slot_was_set:
+    - coin_type: "Ethereum"
+  - action: utter_buy_ethereum
+  - checkpoint: coin_selected_buy
+
+- story: User selects directly Solaris to buy (without greeting)
+  steps:
+  - intent: buy_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_buy_solaris
+  - checkpoint: coin_selected_buy
+
+
+- story: User selects directly Bitcoin to sell (without greeting)
+  steps:
+  - intent: sell_bitcoin
+    entities:
+      - coin_type: "Bitcoin"
+  - slot_was_set:
+    - coin_type: "Bitcoin"
+  - action: utter_sell_bitcoin
+  - checkpoint: coin_selected_sell
+
+- story: User selects directly Ethereum to sell (without greeting)
+  steps:
+  - intent: sell_ethereum
+    entities:
+      - coin_type: "Ethereum"
+  - slot_was_set:
+    - coin_type: "Ethereum"
+  - action: utter_sell_ethereum
+  - checkpoint: coin_selected_sell
+
+- story: User selects directly Solaris to sell (without greeting)
+  steps:
+  - intent: sell_solaris
+    entities:
+      - coin_type: "Solaris"
+  - slot_was_set:
+    - coin_type: "Solaris"
+  - action: utter_sell_solaris
+  - checkpoint: coin_selected_sell
+
+
+# Checkbox coin transaction
+
+- story: User specifies amount and buys Solaris
+  steps:
+  - checkpoint: coin_selected_buy
   - intent: amount_specified
     entities:
       - amount: 12.0
@@ -46,457 +257,31 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User greets and asks to buy a coin then selects Solaris
+- story: User specifies amount and sells the coin
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_coin
-  - action: utter_buy_coin
-  - intent: buy_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_buy_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 1.0
-  - slot_was_set:
-    - amount: 1.0
-  - action: action_buy_crypto
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User asks to buy a coin then selects Bitcoin without greeting
-  steps:
-  - intent: buy_coin
-  - action: utter_buy_coin
-  - intent: buy_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.0
-  - slot_was_set:
-    - amount: 1.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks to buy a coin then selects Ethereum without greeting
-  steps:
-  - intent: buy_coin
-  - action: utter_buy_coin
-  - intent: buy_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 5.0
-  - slot_was_set:
-    - amount: 5.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks to buy a coin then selects Solaris without greeting
-  steps:
-  - intent: buy_coin
-  - action: utter_buy_coin
-  - intent: buy_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_buy_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 2.0
-  - slot_was_set:
-    - amount: 2.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User greets and asks to sell a coin then selects Bitcoin
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_sell_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 12.0
-  - slot_was_set:
-    - amount: 12.0
-  - action: action_sell_crypto
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User greets and asks to sell a coin then selects Ethereum
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_ethereum
-  - action: utter_sell_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 2.0
-  - slot_was_set:
-    - amount: 2.0
-  - action: action_sell_crypto
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User greets and asks to sell a coin then selects Solaris
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 12.0
-  - slot_was_set:
-    - amount: 12.0
-  - action: action_sell_crypto
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User asks to sell a coin then selects Bitcoin without greeting
-  steps:
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_sell_bitcoin
+  - checkpoint: coin_selected_sell
   - intent: amount_specified
     entities:
       - amount: 1.0
   - slot_was_set:
     - amount: 1.0
   - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks to sell a coin then selects Ethereum without greeting
-  steps:
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_sell_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 5.0
-  - slot_was_set:
-    - amount: 5.0
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks to sell a coin then selects Solaris without greeting
-  steps:
-  - intent: sell_coin
-  - action: utter_sell_coin
-  - intent: sell_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 2.0
-  - slot_was_set:
-    - amount: 2.0
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
   - intent: goodbye
   - action: utter_goodbye
 
 
-# User greets and asks to sell coin directly
+# Checkbox coin balance check
 
-- story: User buys Bitcoin directly
+- story: User asks for Bitcoin balance (with greeting)
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys Ethereum directly
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys Solaris directly
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_buy_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User buys Bitcoin directly without greeting
-  steps:
-  - intent: buy_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys Ethereum directly without greeting
-  steps:
-  - intent: buy_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys Solaris directly without greeting
-  steps:
-  - intent: buy_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_buy_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 0.5
-  - slot_was_set:
-    - amount: 0.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User sells Bitcoin directly
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_sell_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User sells Ethereum directly
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_sell_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User sells Solaris directly
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: sell_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-- story: User sells Bitcoin directly without greeting
-  steps:
-  - intent: sell_bitcoin
-    entities:
-      - coin_type: "Bitcoin"
-  - slot_was_set:
-    - coin_type: "Bitcoin"
-  - action: utter_sell_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User sells Ethereum directly without greeting
-  steps:
-  - intent: sell_ethereum
-    entities:
-      - coin_type: "Ethereum"
-  - slot_was_set:
-    - coin_type: "Ethereum"
-  - action: utter_sell_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User sells Solaris directly without greeting
-  steps:
-  - intent: sell_solaris
-    entities:
-      - coin_type: "Solaris"
-  - slot_was_set:
-    - coin_type: "Solaris"
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 1.2
-  - slot_was_set:
-    - amount: 1.2
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-# User checks coin balance and ask for more help
-
-- story: User checks Bitcoin balance
-  steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: ask_bitcoin_balance
   - action: action_check_bitcoin
   - action: utter_ask_more_help
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User checks Bitcoin balance without greeting
+- story: User asks for Bitcoin balance (without greeting)
   steps:
   - intent: ask_bitcoin_balance
   - action: action_check_bitcoin
@@ -504,18 +289,16 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-
-- story: User checks Ethereum balance
+- story: User asks for Ethereum balance (with greeting)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: ask_ethereum_balance
   - action: action_check_ethereum
   - action: utter_ask_more_help
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User checks Ethereum balance without greeting
+- story: User asks for Ethereum balance (without greeting)
   steps:
   - intent: ask_ethereum_balance
   - action: action_check_ethereum
@@ -523,18 +306,16 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-
-- story: User checks Solaris balance
+- story: User asks for Solaris balance (with greeting)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: ask_solaris_balance
   - action: action_check_solaris
   - action: utter_ask_more_help
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User checks Solaris balance without greeting
+- story: User asks for Solaris balance (without greeting)
   steps:
   - intent: ask_solaris_balance
   - action: action_check_solaris
@@ -543,9 +324,18 @@ stories:
   - action: utter_goodbye
 
 
-# User asks for account balance
+# Checkbox account balance check
 
-- story: User asks for account balance
+- story: User asks for account balance (with greeting)
+  steps:
+  - checkpoint: greet_complete
+  - intent: ask_balance
+  - action: action_check_balance
+  - action: utter_ask_more_help
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: User asks for account balance (without greeting)
   steps:
   - intent: ask_balance
   - action: action_check_balance
@@ -553,43 +343,46 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User asks for account balance with greeting
+
+# Checkbox weather inquiry
+
+- story: User asks for the weather (with greeting)
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: ask_balance
-  - action: action_check_balance
+  - checkpoint: greet_complete
+  - intent: ask_weather
+  - action: utter_weather
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: weather_inquiry
 
-# User wants o know about the weather
-
-- story: User asks for the weather and needs no further help
+- story: User asks for the weather (without greeting)
   steps:
   - intent: ask_weather
   - action: utter_weather
   - action: utter_ask_more_help
+  - checkpoint: weather_inquiry
+
+
+# Checkbox help decision
+
+- story: User needs no further help after asking for the weather
+  steps:
+  - checkpoint: weather_inquiry
   - intent: needs_no_help
   - action: utter_no_help
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User asks for the weather and needs more help
+- story: User needs more help after asking for the weather
   steps:
-  - intent: ask_weather
-  - action: utter_weather
-  - action: utter_ask_more_help
+  - checkpoint: weather_inquiry
   - intent: needs_help
   - action: utter_help
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User asks for the weather and changes their mind about help
+- story: User changes mind about needing help after asking for the weather
   steps:
-  - intent: ask_weather
-  - action: utter_weather
-  - action: utter_ask_more_help
+  - checkpoint: weather_inquiry
   - intent: needs_help
   - action: utter_help
   - intent: needs_no_help
@@ -597,23 +390,8 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
-- story: User asks for the weather without greeting
-  steps:
-  - intent: ask_weather
-  - action: utter_weather
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
 
-- story: User asks for the weather with greeting
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: ask_weather
-  - action: utter_weather
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+# Checkbox immediate exit
 
 - story: User asks for the weather and exits immediately
   steps:
@@ -623,35 +401,11 @@ stories:
   - action: utter_goodbye
 
 
-# User asks for help
+# Checkbox account registration
 
-- story: User asks for help but doesn't need it
+- story: User registers an account (John Doe from Germany)
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: needs_help
-  - action: utter_help
-  - intent: needs_no_help
-  - action: utter_no_help
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks for help without greeting
-  steps:
-  - intent: needs_help
-  - action: utter_help
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-
-# User registers an account (not sorted yet)
-
-- story: User registers an account
-  steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: register_account
   - action: utter_register
   - intent: provide_details
@@ -665,13 +419,11 @@ stories:
     - country: "Germany"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-- story: User registers an account with different details (Jane Doe from USA)
+- story: User registers an account (Jane Doe from USA)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: register_account
   - action: utter_register
   - intent: provide_details
@@ -685,13 +437,11 @@ stories:
     - country: "USA"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-- story: User registers an account with different details (Alice from UK)
+- story: User registers an account (Alice Johnson from UK)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: register_account
   - action: utter_register
   - intent: provide_details
@@ -705,11 +455,9 @@ stories:
     - country: "UK"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-
-- story: User registers an account with city and without greeting (Sarah from Australia)
+- story: User registers an account (Sarah Connor from Australia, city Sydney) without greeting
   steps:
   - intent: register_account
   - action: utter_register
@@ -726,13 +474,11 @@ stories:
     - city: "Sydney"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-- story: User registers an account with only name and email (Mark from no country specified)
+- story: User registers an account (Mark Davis with no country specified)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: register_account
   - action: utter_register
   - intent: provide_details
@@ -744,10 +490,9 @@ stories:
     - email: "mark.davis@example.com"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-- story: User registers an account without greeting (Alex from Brazil)
+- story: User registers an account (Alex Mendes from Brazil) without greeting
   steps:
   - intent: register_account
   - action: utter_register
@@ -762,13 +507,11 @@ stories:
     - country: "Brazil"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
-- story: User registers an account providing all details (David from Germany, city Berlin)
+- story: User registers an account (David Weber from Germany, city Berlin)
   steps:
-  - intent: greeting
-  - action: utter_greet
+  - checkpoint: greet_complete
   - intent: register_account
   - action: utter_register
   - intent: provide_details
@@ -784,233 +527,13 @@ stories:
     - city: "Berlin"
   - action: utter_provide_details
   - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
+  - checkpoint: account_registered
 
 
-# Complex situations
+# Checkbox goodbye
 
-- story: User registers an account and checks Bitcoin balance
+- story: User completes registration and exits
   steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: register_account
-  - action: utter_register
-  - intent: provide_details
-    entities:
-      - name: "Alice"
-      - email: "alice@example.com"
-      - country: "Germany"
-  - slot_was_set:
-    - name: "Alice"
-    - email: "alice@example.com"
-    - country: "Germany"
-  - action: utter_provide_details
-  - action: utter_ask_more_help
-  - intent: ask_bitcoin_balance
-  - action: action_check_bitcoin
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys Ethereum and then sells it
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_ethereum
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 3.5
-  - slot_was_set:
-    - amount: 3.5
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: sell_ethereum
-  - action: utter_sell_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 1.5
-  - slot_was_set:
-    - amount: 1.5
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User registers an account and buys Solaris
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: register_account
-  - action: utter_register
-  - intent: provide_details
-    entities:
-      - name: "John Doe"
-      - email: "john.doe@example.com"
-      - country: "Germany"
-  - slot_was_set:
-    - name: "John Doe"
-    - email: "john.doe@example.com"
-    - country: "Germany"
-  - action: utter_provide_details
-  - intent: buy_solaris
-  - action: utter_buy_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 20.0
-  - slot_was_set:
-    - amount: 20.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks for help, registers an account, and buys Bitcoin
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: needs_help
-  - action: utter_help
-  - intent: register_account
-  - action: utter_register
-  - intent: provide_details
-    entities:
-      - name: "Maria"
-      - email: "maria@example.com"
-      - country: "Germany"
-  - slot_was_set:
-    - name: "Maria"
-    - email: "maria@example.com"
-    - country: "Germany"
-  - action: utter_provide_details
-  - intent: buy_bitcoin
-  - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.0
-  - slot_was_set:
-    - amount: 1.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: needs_no_help
-  - action: utter_no_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User buys and sells multiple cryptocurrencies
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: buy_bitcoin
-  - action: utter_buy_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 2.0
-  - slot_was_set:
-    - amount: 2.0
-  - action: action_buy_crypto
-  - intent: buy_ethereum
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 5.0
-  - slot_was_set:
-    - amount: 5.0
-  - action: action_buy_crypto
-  - intent: sell_bitcoin
-  - action: utter_sell_bitcoin
-  - intent: amount_specified
-    entities:
-      - amount: 1.0
-  - slot_was_set:
-    - amount: 1.0
-  - action: action_sell_crypto
-  - intent: sell_solaris
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 10.0
-  - slot_was_set:
-    - amount: 10.0
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks about the weather, buys Ethereum, and exits
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: ask_weather
-  - action: utter_weather
-  - intent: buy_ethereum
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 4.0
-  - slot_was_set:
-    - amount: 4.0
-  - action: action_buy_crypto
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User asks for help, registers, and checks Bitcoin balance
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: needs_help
-  - action: utter_help
-  - intent: register_account
-  - action: utter_register
-  - intent: provide_details
-    entities:
-      - name: "Carlos"
-      - email: "carlos@example.com"
-      - country: "Germany"
-  - slot_was_set:
-    - name: "Carlos"
-    - email: "carlos@example.com"
-    - country: "Germany"
-  - action: utter_provide_details
-  - intent: ask_bitcoin_balance
-  - action: action_check_bitcoin
-  - action: utter_ask_more_help
-  - intent: goodbye
-  - action: utter_goodbye
-
-- story: User registers, buys Ethereum, and sells Solaris
-  steps:
-  - intent: greeting
-  - action: utter_greet
-  - intent: register_account
-  - action: utter_register
-  - intent: provide_details
-    entities:
-      - name: "Jane Smith"
-      - email: "jane.smith@example.com"
-      - country: "Germany"
-  - slot_was_set:
-    - name: "Jane Smith"
-    - email: "jane.smith@example.com"
-    - country: "Germany"
-  - action: utter_provide_details
-  - intent: buy_ethereum
-  - action: utter_buy_ethereum
-  - intent: amount_specified
-    entities:
-      - amount: 2.0
-  - slot_was_set:
-    - amount: 2.0
-  - action: action_buy_crypto
-  - intent: sell_solaris
-  - action: utter_sell_solaris
-  - intent: amount_specified
-    entities:
-      - amount: 5.0
-  - slot_was_set:
-    - amount: 5.0
-  - action: action_sell_crypto
-  - action: utter_ask_more_help
+  - checkpoint: account_registered
   - intent: goodbye
   - action: utter_goodbye
