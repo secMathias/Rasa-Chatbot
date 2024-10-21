@@ -36,7 +36,7 @@ pip install rasa
    ```
 4. Run the chatbot:
    ```bash
-   rasa run
+   rasa run --enable-api --cors="*" --port 5005
    ```
 
 ## How It Works
@@ -62,9 +62,9 @@ Custom actions are defined in the `actions.py` file. These handle backend logic,
 The NLU model is trained to understand user intents and extract relevant entities from user inputs. It uses intents like `greet`, `coin_selection`, and `transaction` to manage dialogue flow.
 
 ## Usage
-After setting up, you can start interacting with the chatbot:
+After setting up, you can start the action server:
 ```bash
-rasa shell
+python3 -m rasa_sdk --actions actions  
 ```
 
 You can also test your stories using:
