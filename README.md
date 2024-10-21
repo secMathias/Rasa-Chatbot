@@ -1,12 +1,13 @@
 # **Elite Crypto Broker Assistant - Rasa Chatbot**
-
-<img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/e3d1ba7e-c271-4217-98e6-f467cb4b9c7b">
-
 ---
 
 ## **Introduction**
 
 This project is a Rasa-based chatbot built to assist users in getting started with **Elite Crypto Broker**. The bot is designed to streamline common tasks such as selecting cryptocurrencies, making transactions, and checking account balances. With a story-based dialogue system and modular architecture, it ensures flexibility and scalability in handling user interactions.
+
+<img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/e3d1ba7e-c271-4217-98e6-f467cb4b9c7b">
+
+---
 
 ## **Features**
 
