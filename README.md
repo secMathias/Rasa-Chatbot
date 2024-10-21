@@ -2,14 +2,6 @@
 
 <img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/e3d1ba7e-c271-4217-98e6-f467cb4b9c7b">
 
-It seems like there was an issue with the image you tried to share. However, I can help you extend your README for the Rasa chatbot you're about to publish.
-
-Here’s a basic structure to follow, which we can expand further based on the specifics of your chatbot project.
-
----
-
-# Rasa Chatbot
-
 ## Introduction
 This project is a Rasa-based chatbot designed for [purpose of your chatbot, e.g., handling user queries related to funding options for international students at DIT]. It uses story-based dialogue management and employs a modular structure to manage user interactions efficiently.
 
