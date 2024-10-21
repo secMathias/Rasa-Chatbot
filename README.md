@@ -2,8 +2,6 @@
 
 <img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/e3d1ba7e-c271-4217-98e6-f467cb4b9c7b">
 
-Rasa chatbot project:
-
 ---
 
 ## **Introduction**
@@ -125,5 +123,3 @@ You can deploy this chatbot using Docker or a cloud platform for wider access. F
 We welcome contributions! Please feel free to open issues or submit pull requests to suggest new features or improve existing functionality.
 
 ---
-
-Let me know if you'd like to modify any other sections or if you need further improvements!
