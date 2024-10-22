@@ -101,18 +101,18 @@ To test your stories and ensure the chatbot behaves as expected:
 rasa test
 ```
 
-## **Deployment**
+## **Vue frontend**
 
-You can deploy this chatbot using Docker or a cloud platform for wider access. Follow these steps to deploy with Docker:
+All node modules have already been provided just start the frontend:
 
-1. **Build the Docker image**:
+1. **Change to the VUE directory**:
    ```bash
-   docker build -t rasa-chatbot .
+   cd vue-chatbot
    ```
 
-2. **Run the Docker container**:
+2. **Build the VUE frontend**:
    ```bash
-   docker run -p 5005:5005 rasa-chatbot
+   npm run serve
    ```
 
 ## **Future Enhancements**
