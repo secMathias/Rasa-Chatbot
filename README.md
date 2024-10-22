@@ -6,7 +6,8 @@ This project is a Rasa-based chatbot built to assist users in getting started wi
 
 ---
 
-<img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/e3d1ba7e-c271-4217-98e6-f467cb4b9c7b">
+<img width="1757" alt="Bildschirmfoto 2024-10-11 um 22 29 32" src="https://github.com/user-attachments/assets/7fc25d8d-fe1b-4ebc-b4e9-ee7dac1f4fbd">
+
 
 ---
 
